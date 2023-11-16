@@ -24,7 +24,7 @@ export default class Browser extends ConcurrencyImplementation {
             jobInstance: async () => {
                 await timeoutExecute(BROWSER_TIMEOUT, (async () => {
                     context = await chrome.createIncognitoBrowserContext();
-                    page = await newInjectedPage(chrome, {
+                    page = await newInjectedPage(context as any, {
                         // constraints for the generated fingerprint
                         fingerprintOptions: {
                             devices: ["mobile"],

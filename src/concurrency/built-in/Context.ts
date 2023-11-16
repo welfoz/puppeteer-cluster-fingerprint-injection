@@ -10,13 +10,13 @@ export default class Context extends SingleBrowserImplementation {
     protected async createResources(): Promise<ResourceData> {
         const context = await (this.browser as puppeteer.Browser)
             .createIncognitoBrowserContext();
-        const page = await newInjectedPage(this.browser as puppeteer.Browser, {
+        const page = await newInjectedPage(context as any, {
             // constraints for the generated fingerprint
             fingerprintOptions: {
                 devices: ["mobile"],
                 operatingSystems: ["ios"],
             },
-        }),
+        });
         return {
             context,
             page,
