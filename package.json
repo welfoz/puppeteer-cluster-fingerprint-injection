@@ -23,7 +23,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "debug": "^4.3.3"
+    "debug": "^4.3.3",
+    "fingerprint-injector": "^2.1.43"
   },
   "peerDependencies": {
     "puppeteer": ">=1.5.0"

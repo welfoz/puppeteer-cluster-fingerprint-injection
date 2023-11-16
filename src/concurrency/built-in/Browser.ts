@@ -1,5 +1,6 @@
 
 import * as puppeteer from 'puppeteer';
+import { newInjectedPage } from 'fingerprint-injector';
 
 import { debugGenerator, timeoutExecute } from '../../util';
 import ConcurrencyImplementation, { WorkerInstance } from '../ConcurrencyImplementation';
@@ -23,7 +24,13 @@ export default class Browser extends ConcurrencyImplementation {
             jobInstance: async () => {
                 await timeoutExecute(BROWSER_TIMEOUT, (async () => {
                     context = await chrome.createIncognitoBrowserContext();
-                    page = await context.newPage();
+                    page = await newInjectedPage(chrome, {
+                        // constraints for the generated fingerprint
+                        fingerprintOptions: {
+                            devices: ["mobile"],
+                            operatingSystems: ["ios"],
+                        },
+                    });
                 })());
 
                 return {
