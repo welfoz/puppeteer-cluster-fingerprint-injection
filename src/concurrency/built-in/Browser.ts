@@ -27,8 +27,8 @@ export default class Browser extends ConcurrencyImplementation {
                     page = await newInjectedPage(context as any, {
                         // constraints for the generated fingerprint
                         fingerprintOptions: {
-                            devices: ["mobile"],
-                            operatingSystems: ["ios"],
+                            devices: ["desktop"],
+                            operatingSystems: ["windows"],
                         },
                     });
                 })());

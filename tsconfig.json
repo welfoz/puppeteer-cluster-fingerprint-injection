@@ -10,7 +10,7 @@
         ],
 
         "rootDir": "./src",
-        "outDir": "./dist",
+        "outDir": "../puppeteer-cluster-dist",
 
         "strict": true,
         "inlineSourceMap": true,

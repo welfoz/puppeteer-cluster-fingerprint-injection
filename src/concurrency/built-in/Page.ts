@@ -12,8 +12,8 @@ export default class Page extends SingleBrowserImplementation {
             page: await newInjectedPage(this.browser as puppeteer.Browser, {
                 // constraints for the generated fingerprint
                 fingerprintOptions: {
-                    devices: ["mobile"],
-                    operatingSystems: ["ios"],
+                    devices: ["desktop"],
+                    operatingSystems: ["windows"],
                 },
             }),
         };
